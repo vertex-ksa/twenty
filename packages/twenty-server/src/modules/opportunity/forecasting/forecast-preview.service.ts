@@ -12,9 +12,18 @@ import {
   type ForecastPolicy,
 } from 'src/modules/opportunity/forecasting/compute-revenue-forecast.util';
 import { ForecastPreviewInput } from 'src/modules/opportunity/forecasting/forecast-preview.input';
+import { normalizeNativeForecastAmount } from 'src/modules/opportunity/forecasting/normalize-native-forecast-amount.util';
 import { type OpportunityWorkspaceEntity } from 'src/modules/opportunity/standard-objects/opportunity.workspace-entity';
 
 const PREVIEW_RECORD_LIMIT = 5000;
+
+type NativeForecastObservation = Pick<
+  OpportunityWorkspaceEntity,
+  'id' | 'ownerId' | 'stage' | 'closeDate'
+> & {
+  amountAmountMicros: unknown;
+  amountCurrencyCode: unknown;
+};
 
 @Injectable()
 export class ForecastPreviewService {
@@ -69,11 +78,22 @@ export class ForecastPreviewService {
         this.workspaceOrmManager.getRepositoryWithContextPermissions<OpportunityWorkspaceEntity>(
           'opportunity',
         );
-      const opportunities = await repository.find({
-        select: ['id', 'ownerId', 'stage', 'closeDate', 'amount'],
-        order: { id: 'ASC' },
-        take: PREVIEW_RECORD_LIMIT + 1,
-      });
+      // Disabling result formatting changes no permission checks. The native
+      // query still executes current object/field/row checks before its SQL.
+      const opportunities = await repository
+        .createQueryBuilder()
+        .setFindOptions({
+          select: {
+            id: true,
+            ownerId: true,
+            stage: true,
+            closeDate: true,
+            amount: true,
+          },
+        })
+        .orderBy('id', 'ASC')
+        .take(PREVIEW_RECORD_LIMIT + 1)
+        .getMany<NativeForecastObservation>({ noFormatting: true });
 
       if (opportunities.length > PREVIEW_RECORD_LIMIT) {
         throw new UserInputError(
@@ -83,13 +103,23 @@ export class ForecastPreviewService {
 
       try {
         const rows = opportunities.map(
-          ({ id, ownerId, stage, closeDate, amount }) => ({
+          ({
+            id,
+            ownerId,
+            stage,
+            closeDate,
+            amountAmountMicros,
+            amountCurrencyCode,
+          }) => ({
             id,
             ownerId,
             stage,
             closeDate:
               closeDate === null ? null : new Date(closeDate).toISOString(),
-            amount,
+            amount: normalizeNativeForecastAmount(
+              amountAmountMicros,
+              amountCurrencyCode,
+            ),
           }),
         );
 

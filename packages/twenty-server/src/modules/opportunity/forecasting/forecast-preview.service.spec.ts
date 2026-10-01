@@ -31,11 +31,18 @@ describe('ForecastPreviewService local adapter', () => {
     ownerId,
     stage: 'NEW',
     closeDate: new Date('2026-10-15T00:00:00Z'),
-    amount: { amountMicros: 11, currencyCode: 'SAR' },
+    amountAmountMicros: '11',
+    amountCurrencyCode: 'SAR',
   };
   const authContext = { type: 'user' };
   const find = jest.fn();
-  const getRepositoryWithContextPermissions = jest.fn(() => ({ find }));
+  const take = jest.fn(() => ({ getMany: find }));
+  const orderBy = jest.fn(() => ({ take }));
+  const setFindOptions = jest.fn(() => ({ orderBy }));
+  const createQueryBuilder = jest.fn(() => ({ setFindOptions }));
+  const getRepositoryWithContextPermissions = jest.fn(() => ({
+    createQueryBuilder,
+  }));
   const executeInWorkspaceContext = jest.fn((callback) => callback());
   const manager = {
     getRepositoryWithContextPermissions,
@@ -101,11 +108,18 @@ describe('ForecastPreviewService local adapter', () => {
     expect(getRepositoryWithContextPermissions).toHaveBeenCalledWith(
       'opportunity',
     );
-    expect(find).toHaveBeenCalledWith({
-      select: ['id', 'ownerId', 'stage', 'closeDate', 'amount'],
-      order: { id: 'ASC' },
-      take: 5001,
+    expect(setFindOptions).toHaveBeenCalledWith({
+      select: {
+        id: true,
+        ownerId: true,
+        stage: true,
+        closeDate: true,
+        amount: true,
+      },
     });
+    expect(orderBy).toHaveBeenCalledWith('id', 'ASC');
+    expect(take).toHaveBeenCalledWith(5001);
+    expect(find).toHaveBeenCalledWith({ noFormatting: true });
     expect(result.persistedSnapshot).toBe(false);
     expect(result.forecast.currencies[0].weightedOpenMicros).toBe('6');
   });
@@ -142,11 +156,10 @@ describe('ForecastPreviewService local adapter', () => {
     { ...row, closeDate: new Date('invalid') },
     {
       ...row,
-      amount: {
-        amountMicros: Number.MAX_SAFE_INTEGER + 1,
-        currencyCode: 'SAR',
-      },
+      amountAmountMicros: Number.MAX_SAFE_INTEGER + 1,
     },
+    { ...row, amountAmountMicros: '11.5' },
+    { ...row, amountAmountMicros: '9007199254740991.2' },
   ])(
     'rejects unsafe native data without exposing row details',
     async (invalidRow) => {
