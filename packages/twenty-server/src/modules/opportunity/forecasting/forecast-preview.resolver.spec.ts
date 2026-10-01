@@ -33,6 +33,11 @@ describe('Forecast preview native GraphQL schema', () => {
       expect(printed).toContain('category: String!');
       expect(printed).toContain('probabilityBasisPoints: Int!');
       expect(printed).toContain('ownerIds: [String!]!');
+      expect(printed).toContain('revenueForecastSnapshots: JSON!');
+      expect(printed).toContain('revenueForecastSnapshot(id: String!): JSON!');
+      expect(printed).toContain(
+        'saveRevenueForecastSnapshot(input: SaveForecastSnapshotInput!): JSON!',
+      );
     } finally {
       await module.close();
     }

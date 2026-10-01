@@ -123,6 +123,15 @@ describe('ForecastPreviewService local adapter', () => {
     expect(find).toHaveBeenCalledWith({ noFormatting: true });
     expect(result.persistedSnapshot).toBe(false);
     expect(result.forecast.currencies[0].weightedOpenMicros).toBe('6');
+    expect(result.opportunities).toEqual([
+      {
+        id: row.id,
+        ownerId,
+        stage: 'NEW',
+        closeDate: '2026-10-15T00:00:00.000Z',
+        amount: { amountMicros: '11', currencyCode: 'SAR' },
+      },
+    ]);
   });
 
   it('propagates native permission denial without replacing it with totals', async () => {
@@ -130,6 +139,39 @@ describe('ForecastPreviewService local adapter', () => {
     await expect(service.preview(input)).rejects.toThrow(
       'Native field permission denied',
     );
+  });
+
+  it('checks current required-field visibility without recalculating historical source facts', async () => {
+    find.mockResolvedValue([
+      { ...row, amountAmountMicros: '11.5', stage: 'LATER_STAGE' },
+    ]);
+    expect(await service.readAuthorizedOpportunityIds()).toEqual([row.id]);
+    expect(find).toHaveBeenCalledWith({ noFormatting: true });
+    expect(setFindOptions).toHaveBeenCalledWith({
+      select: {
+        id: true,
+        ownerId: true,
+        stage: true,
+        closeDate: true,
+        amountAmountMicros: true,
+        amountCurrencyCode: true,
+      },
+    });
+  });
+
+  it('preserves current field denial on historical access checks', async () => {
+    find.mockRejectedValue(new Error('Native field permission denied'));
+    await expect(service.readAuthorizedOpportunityIds()).rejects.toThrow(
+      'Native field permission denied',
+    );
+  });
+
+  it('denies historical visibility reads when the local feature is disabled', async () => {
+    process.env.TM_FORECAST_PREVIEW_ENABLED = 'false';
+    await expect(service.readAuthorizedOpportunityIds()).rejects.toThrow(
+      'disabled',
+    );
+    expect(find).not.toHaveBeenCalled();
   });
 
   it('rejects excess records rather than returning partial totals', async () => {

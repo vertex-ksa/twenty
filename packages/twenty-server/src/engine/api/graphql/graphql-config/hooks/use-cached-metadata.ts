@@ -40,7 +40,14 @@ export function useCachedMetadata(config: CacheMetadataPluginConfig): Plugin {
 
       visit(parse(request.body.query), {
         Field(node) {
-          if (node.name.value === 'revenueForecastPreview') {
+          if (
+            [
+              'revenueForecastPreview',
+              'revenueForecastSnapshots',
+              'revenueForecastSnapshot',
+              'saveRevenueForecastSnapshot',
+            ].includes(node.name.value)
+          ) {
             excluded = true;
           }
         },

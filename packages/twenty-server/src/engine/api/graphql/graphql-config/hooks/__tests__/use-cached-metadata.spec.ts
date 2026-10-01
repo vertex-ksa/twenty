@@ -316,6 +316,10 @@ describe('useCachedMetadata', () => {
     'query ObjectMetadataItems { ...Outer } fragment Outer on Query { ...Inner } fragment Inner on Query { revenueForecastPreview(input: {}) }',
     'query ObjectMetadataItems { objects { id } } query Other { revenueForecastPreview(input: {}) }',
     'query ObjectMetadataItems { objects { id } } fragment Unused on Query { revenueForecastPreview(input: {}) }',
+    'query ObjectMetadataItems { revenueForecastSnapshots }',
+    'query ObjectMetadataItems { privateHistory: revenueForecastSnapshot(id: "synthetic") }',
+    'mutation ObjectMetadataItems { saveRevenueForecastSnapshot(input: {}) }',
+    'query ObjectMetadataItems { ...History } fragment History on Query { revenueForecastSnapshot(id: "synthetic") }',
   ])(
     'never reads or writes an actor-specific forecast under an allowed operation name: %s',
     async (query) => {
