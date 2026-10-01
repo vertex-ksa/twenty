@@ -114,7 +114,8 @@ describe('ForecastPreviewService local adapter', () => {
         ownerId: true,
         stage: true,
         closeDate: true,
-        amount: true,
+        amountAmountMicros: true,
+        amountCurrencyCode: true,
       },
     });
     expect(orderBy).toHaveBeenCalledWith('id', 'ASC');

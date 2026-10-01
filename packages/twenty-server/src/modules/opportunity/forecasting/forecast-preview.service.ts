@@ -88,7 +88,8 @@ export class ForecastPreviewService {
             ownerId: true,
             stage: true,
             closeDate: true,
-            amount: true,
+            amountAmountMicros: true,
+            amountCurrencyCode: true,
           },
         })
         .orderBy('id', 'ASC')
