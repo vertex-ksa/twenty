@@ -62,8 +62,8 @@ export class ForecastSnapshotService {
   }
 
   async list() {
-    const actor = this.actorScope();
-    const snapshots = await this.repository.find(actor.workspaceId, {
+    const { workspaceId, ...actor } = this.actorScope();
+    const snapshots = await this.repository.find(workspaceId, {
       where: actor,
       select: { id: true, createdAt: true },
       order: { createdAt: 'DESC', id: 'DESC' },
@@ -74,8 +74,8 @@ export class ForecastSnapshotService {
   }
 
   async read(id: string) {
-    const actor = this.actorScope();
-    const snapshot = await this.repository.findOne(actor.workspaceId, {
+    const { workspaceId, ...actor } = this.actorScope();
+    const snapshot = await this.repository.findOne(workspaceId, {
       where: { ...actor, id },
     });
     if (!snapshot) throw new ForbiddenError('Forecast snapshot is unavailable');
@@ -107,7 +107,11 @@ export class ForecastSnapshotService {
       actor,
       policy,
     });
-    const where = { ...actor, commandId: input.commandId };
+    const where = {
+      userWorkspaceId: actor.userWorkspaceId,
+      userId: actor.userId,
+      commandId: input.commandId,
+    };
     const prior = await this.repository.findOne(actor.workspaceId, { where });
     if (prior) return this.replay(prior, commandHash);
 
@@ -127,6 +131,7 @@ export class ForecastSnapshotService {
       .createScopedQueryBuilder(actor.workspaceId, 'snapshot')
       .insert()
       .values({
+        workspaceId: actor.workspaceId,
         ...where,
         commandHash,
         contentHash: hash(content),

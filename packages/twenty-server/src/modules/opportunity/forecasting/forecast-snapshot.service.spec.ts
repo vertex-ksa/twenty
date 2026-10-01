@@ -1,4 +1,5 @@
 import { WorkspaceScopedRepository } from 'src/engine/twenty-orm/workspace-scoped-repository/workspace-scoped-repository';
+import { type Repository } from 'typeorm';
 
 import { getWorkspaceAuthContext } from 'src/engine/core-modules/auth/storage/workspace-auth-context.storage';
 import { type ForecastSnapshotEntity } from 'src/engine/core-modules/forecast/forecast-snapshot.entity';
@@ -44,7 +45,7 @@ describe('private immutable forecast artifacts', () => {
   };
   let records: ForecastSnapshotEntity[];
   const findOne = jest.fn(
-    async (_workspaceId, { where }) =>
+    async ({ where }) =>
       records.find((record) =>
         Object.entries(where).every(
           ([key, value]) =>
@@ -71,14 +72,15 @@ describe('private immutable forecast artifacts', () => {
     return { orIgnore };
   });
   const insert = jest.fn(() => ({ values }));
-  const createScopedQueryBuilder = jest.fn(() => ({ insert }));
+  const where = jest.fn(() => ({ insert }));
+  const createQueryBuilder = jest.fn(() => ({ where }));
   const preview = jest.fn();
   const readAuthorizedOpportunityIds = jest.fn();
   const service = new ForecastSnapshotService(
-    {
+    new WorkspaceScopedRepository({
       findOne,
-      createScopedQueryBuilder,
-    } as unknown as WorkspaceScopedRepository<ForecastSnapshotEntity>,
+      createQueryBuilder,
+    } as unknown as Repository<ForecastSnapshotEntity>),
     {
       preview,
       readAuthorizedOpportunityIds,
