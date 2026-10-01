@@ -5,6 +5,14 @@ import { styled } from '@linaria/react';
 import { lazy, Suspense } from 'react';
 
 import { themeCssVariables } from 'twenty-ui/theme';
+import { useLocation } from 'react-router-dom';
+import { useLingui } from '@lingui/react';
+import { NavigationDrawerItem } from '@/ui/navigation/navigation-drawer/components/NavigationDrawerItem';
+import {
+  FORECAST_PREVIEW_PATH,
+  isForecastPreviewEnabled,
+} from '@/forecast-preview/utils/isForecastPreviewEnabled';
+import { forecastPreviewMessages } from '@/forecast-preview/forecastPreviewMessages';
 
 const FavoritesSectionDispatcher = lazy(() =>
   import('@/navigation-menu-item/display/sections/favorites/components/FavoritesSectionDispatcher').then(
@@ -29,8 +37,17 @@ const StyledScrollableItemsContainer = styled.div`
 `;
 
 export const MainNavigationDrawerScrollableItems = () => {
+  const location = useLocation();
+  const { i18n } = useLingui();
   return (
     <StyledScrollableItemsContainer>
+      {isForecastPreviewEnabled() && (
+        <NavigationDrawerItem
+          label={i18n._(forecastPreviewMessages.title)}
+          to={FORECAST_PREVIEW_PATH}
+          active={location.pathname === FORECAST_PREVIEW_PATH}
+        />
+      )}
       <NavigationDrawerOpenedSection />
       <Suspense fallback={<NavigationDrawerWorkspaceSectionSkeletonLoader />}>
         <FavoritesSectionDispatcher />

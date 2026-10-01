@@ -31,6 +31,7 @@ export default defineConfig(({ mode }) => {
     REACT_APP_PORT,
     REACT_APP_SERVER_BASE_URL,
     IS_DEBUG_MODE,
+    REACT_APP_TM_FORECAST_PREVIEW_ENABLED,
   } = env;
 
   const port = isNonEmptyString(REACT_APP_PORT)
@@ -264,6 +265,7 @@ export default defineConfig(({ mode }) => {
       'process.env': {
         IS_DEBUG_MODE,
         IS_DEV_ENV: mode === 'development' ? 'true' : 'false',
+        REACT_APP_TM_FORECAST_PREVIEW_ENABLED,
       },
     },
     css: {

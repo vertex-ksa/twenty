@@ -25469,3 +25469,233 @@ msgstr "تكبير"
 #: src/modules/settings/data-model/graph-overview/components/SettingsDataModelOverview.tsx
 msgid "Zoom out"
 msgstr "تصغير"
+
+#. js-lingui-id: s5GvlW
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Forecast preview"
+msgstr "معاينة التوقعات"
+
+#. js-lingui-id: xjIdi9
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Review current opportunities you can access. These totals are a visible subset, not a certified team forecast."
+msgstr "راجع الفرص الحالية التي يمكنك الوصول إليها. هذه الإجماليات تمثل الجزء المرئي لك، وليست توقعات معتمدة للفريق."
+
+#. js-lingui-id: j8LXan
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Trial assumptions only. Nothing is saved or submitted. Won opportunity value is not recognized revenue. Currencies are separate; no exchange rates are applied."
+msgstr "افتراضات تجريبية فقط. لا يتم حفظ أو إرسال أي شيء. قيمة الفرص المكتسبة ليست إيرادًا معترفًا به. العملات منفصلة ولا تُطبّق أسعار صرف."
+
+#. js-lingui-id: 5w7mgi
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Forecast period (UTC)"
+msgstr "فترة التوقعات (UTC)"
+
+#. js-lingui-id: BwHZkf
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Start date (included)"
+msgstr "تاريخ البداية (مشمول)"
+
+#. js-lingui-id: SeKRA4
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "End date (excluded)"
+msgstr "تاريخ النهاية (غير مشمول)"
+
+#. js-lingui-id: 3arXUc
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Opportunity owners"
+msgstr "مسؤولو الفرص"
+
+#. js-lingui-id: icRNdy
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Choose owners available in your workspace. Current opportunity ownership determines inclusion. Your existing record permissions still apply."
+msgstr "اختر المسؤولين المتاحين في مساحة العمل. تحدد المسؤولية الحالية عن الفرصة إدراجها. تظل صلاحيات السجلات الحالية سارية."
+
+#. js-lingui-id: eyY0VE
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Trial stage mapping"
+msgstr "تصنيف تجريبي للمراحل"
+
+#. js-lingui-id: gPyXYm
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "All stages start excluded. Choose a category and an open-stage probability to test assumptions. 10000 basis points means 100%."
+msgstr "تبدأ جميع المراحل مستبعدة. اختر فئة واحتمالًا للمراحل المفتوحة لتجربة الافتراضات. 10000 نقطة أساس تعني 100٪."
+
+#. js-lingui-id: 5ugYS3
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Opportunity stage"
+msgstr "مرحلة الفرصة"
+
+#. js-lingui-id: K7tIrx
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Category"
+msgstr "الفئة"
+
+#. js-lingui-id: 3Qxg/4
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Probability (basis points)"
+msgstr "الاحتمال (نقاط أساس)"
+
+#. js-lingui-id: 67RoFa
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Pipeline"
+msgstr "الفرص قيد المتابعة"
+
+#. js-lingui-id: qfh5SS
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Best case"
+msgstr "أفضل حالة"
+
+#. js-lingui-id: rl/8FN
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Commit"
+msgstr "الالتزام"
+
+#. js-lingui-id: EZ08Yr
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Won opportunity value"
+msgstr "قيمة الفرص المكتسبة"
+
+#. js-lingui-id: XbuiBx
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Lost"
+msgstr "خاسرة"
+
+#. js-lingui-id: KJ/eAL
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Excluded"
+msgstr "مستبعدة"
+
+#. js-lingui-id: wb65Yb
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Weighted open value"
+msgstr "القيمة المرجحة للفرص المفتوحة"
+
+#. js-lingui-id: o4y+Wp
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Refresh forecast preview"
+msgstr "تحديث معاينة التوقعات"
+
+#. js-lingui-id: h6klwg
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Choose the period, owners and stage assumptions, then refresh the preview."
+msgstr "اختر الفترة والمسؤولين وافتراضات المراحل، ثم حدّث المعاينة."
+
+#. js-lingui-id: BMBR8P
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Reading current authorized opportunities…"
+msgstr "جارٍ قراءة الفرص الحالية المصرّح بها…"
+
+#. js-lingui-id: m6CqZZ
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Forecast preview is unavailable for your current access or workspace."
+msgstr "معاينة التوقعات غير متاحة لصلاحياتك الحالية أو مساحة العمل الحالية."
+
+#. js-lingui-id: lOEA55
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Check the UTC period, owner selection and probabilities. Your entries are retained."
+msgstr "تحقق من فترة UTC والمسؤولين المحددين والاحتمالات. تم الاحتفاظ بمدخلاتك."
+
+#. js-lingui-id: nhsa5h
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Too many accessible opportunities for this preview. No partial totals are shown."
+msgstr "عدد الفرص المتاحة يتجاوز حد هذه المعاينة. لا تُعرض إجماليات جزئية."
+
+#. js-lingui-id: gOIIxy
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "The forecast could not be verified. Check your connection and refresh to retry."
+msgstr "تعذر التحقق من التوقعات. تحقق من الاتصال وحدّث المعاينة لإعادة المحاولة."
+
+#. js-lingui-id: M1R+Ov
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "No opportunities are visible in this authorized dataset."
+msgstr "لا توجد فرص مرئية في مجموعة البيانات المصرّح بها."
+
+#. js-lingui-id: RYon0n
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "No opportunities match these trial assumptions. Review the excluded opportunities below."
+msgstr "لا توجد فرص تطابق هذه الافتراضات التجريبية. راجع الفرص المستبعدة أدناه."
+
+#. js-lingui-id: 4ZXo4T
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Observed at"
+msgstr "وقت الرصد"
+
+#. js-lingui-id: mFMROO
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Separate currency totals"
+msgstr "إجماليات منفصلة حسب العملة"
+
+#. js-lingui-id: qSi9CG
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Categories are separate. Weighted open value overlaps open categories; do not add it to those totals. Values retain six decimal places from native micros."
+msgstr "الفئات منفصلة. القيمة المرجحة للفرص المفتوحة تتداخل مع الفئات المفتوحة؛ لا تضفها إلى إجمالياتها. تحتفظ القيم بست منازل عشرية من وحدات الميكرو الأصلية."
+
+#. js-lingui-id: 5RFsy3
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Authorized opportunities"
+msgstr "الفرص المصرّح بها"
+
+#. js-lingui-id: yt2gsa
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Opportunity reference"
+msgstr "مرجع الفرصة"
+
+#. js-lingui-id: je6ut9
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Current close date"
+msgstr "تاريخ الإغلاق الحالي"
+
+#. js-lingui-id: ecEGlW
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Opportunity value"
+msgstr "قيمة الفرصة"
+
+#. js-lingui-id: F80mhj
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Inclusion or exclusion"
+msgstr "الإدراج أو الاستبعاد"
+
+#. js-lingui-id: oxAQte
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Unassigned owner"
+msgstr "لا يوجد مسؤول معيّن"
+
+#. js-lingui-id: eyCfe0
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Outside selected owners"
+msgstr "خارج المسؤولين المحددين"
+
+#. js-lingui-id: 4Ls1Ua
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Outside period"
+msgstr "خارج الفترة"
+
+#. js-lingui-id: enM0VS
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Close date required"
+msgstr "تاريخ الإغلاق مطلوب"
+
+#. js-lingui-id: h+e60R
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Amount required"
+msgstr "المبلغ مطلوب"
+
+#. js-lingui-id: DzfM3D
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Excluded by trial mapping"
+msgstr "مستبعدة بالتصنيف التجريبي"
+
+#. js-lingui-id: aHKcKc
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Previous page"
+msgstr "الصفحة السابقة"
+
+#. js-lingui-id: /dqduX
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Next page"
+msgstr "الصفحة التالية"
+
+#. js-lingui-id: /WUrvR
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Owner reference"
+msgstr "مرجع المسؤول"

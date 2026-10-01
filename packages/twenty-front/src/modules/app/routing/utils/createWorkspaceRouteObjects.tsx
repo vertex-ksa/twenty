@@ -10,6 +10,16 @@ import {
 } from '@/app/components/SettingsRoutes';
 import { type WorkspaceRouteObject } from '@/app/routing/types/WorkspaceRouteObject';
 import { RecordIndexSkeletonLoader } from '@/object-record/record-index/components/RecordIndexSkeletonLoader';
+import {
+  FORECAST_PREVIEW_PATH,
+  isForecastPreviewEnabled,
+} from '@/forecast-preview/utils/isForecastPreviewEnabled';
+
+const ForecastPreviewPage = lazy(() =>
+  import('~/pages/forecast-preview/ForecastPreviewPage').then((module) => ({
+    default: module.ForecastPreviewPage,
+  })),
+);
 
 const WorkflowCoreIndexPage = lazy(() =>
   import('~/pages/object-core/WorkflowCoreIndexPage').then((module) => ({
@@ -76,6 +86,19 @@ export const createWorkspaceRouteObjects = ({
   });
 
   return [
+    ...(isForecastPreviewEnabled()
+      ? [
+          {
+            path: FORECAST_PREVIEW_PATH,
+            element: (
+              <LazyRoute>
+                <ForecastPreviewPage />
+              </LazyRoute>
+            ),
+            handle: { workspaceSurfaces: ['main'] },
+          } satisfies WorkspaceRouteObject,
+        ]
+      : []),
     {
       path: AppPath.WorkflowCoreShowPage,
       element: (
