@@ -13,6 +13,7 @@ import { currentWorkspaceState } from '@/auth/states/currentWorkspaceState';
 import { currentWorkspaceMemberState } from '@/auth/states/currentWorkspaceMemberState';
 import { currentWorkspaceMembersState } from '@/auth/states/currentWorkspaceMembersState';
 import { forecastPreviewMessages } from '@/forecast-preview/forecastPreviewMessages';
+import { ForecastHistoryPanel } from '@/forecast-preview/components/ForecastHistoryPanel';
 import { useForecastPreviewRequest } from '@/forecast-preview/hooks/useForecastPreviewRequest';
 import {
   FORECAST_CATEGORIES,
@@ -75,7 +76,7 @@ const StyledBody = styled.div`
   }
   a {
     color: ${themeCssVariables.color.blue9};
-    overflow-wrap: anywhere;
+    white-space: nowrap;
   }
   fieldset {
     border: 1px solid ${themeCssVariables.border.color.medium};
@@ -284,6 +285,10 @@ const ForecastPreviewSurface = () => {
     setValidationError(null);
     setPage(1);
   }, [clearRequest]);
+  const invalidatePreview = useCallback(() => {
+    clear();
+    setValidationError('failure');
+  }, [clear]);
   useEffect(() => {
     clear();
   }, [signature, clear]);
@@ -695,6 +700,16 @@ const ForecastPreviewSurface = () => {
               </>
             )}
           </section>
+        )}
+        {knownContext && currentWorkspace?.id && currentUser?.id && (
+          <ForecastHistoryPanel
+            key={signature}
+            workspaceId={currentWorkspace.id}
+            userId={currentUser.id}
+            input={input}
+            canSave={Boolean(preview) && !busy}
+            onVerificationFailure={invalidatePreview}
+          />
         )}
       </StyledBody>
     </PageCardLayout>
