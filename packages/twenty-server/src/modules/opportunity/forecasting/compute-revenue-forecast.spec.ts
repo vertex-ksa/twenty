@@ -1,11 +1,10 @@
 import assert from 'node:assert/strict';
-import { test } from 'node:test';
 import {
   computeQuotaAttainment,
   computeRevenueForecast,
   type ForecastOpportunity,
   type ForecastPolicy,
-} from './compute-revenue-forecast.util.ts';
+} from './compute-revenue-forecast.util';
 
 const policy: ForecastPolicy = {
   version: 'stage-policy-1',

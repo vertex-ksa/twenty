@@ -53,6 +53,13 @@ export type RevenueForecast = {
   }[];
 };
 
+// Native server emits ES2018. BigInt constructors preserve exact arithmetic
+// without bigint literal syntax, which TypeScript rejects for that target.
+const ZERO = BigInt(0);
+const TWO = BigInt(2);
+const HALF_BASIS_POINT_SCALE = BigInt(5000);
+const BASIS_POINT_SCALE = BigInt(10000);
+
 const instant = (value: string): number => {
   if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?Z$/.test(value)) {
     throw new Error('Forecast timestamps must be UTC instants');
@@ -132,7 +139,7 @@ export const computeRevenueForecast = (
       });
       continue;
     }
-    if (!Object.hasOwn(policy.stages, opportunity.stage))
+    if (!Object.prototype.hasOwnProperty.call(policy.stages, opportunity.stage))
       throw new Error('Unmapped opportunity stage');
     const mapping = policy.stages[opportunity.stage];
     if (mapping.category === 'lost' || mapping.category === 'excluded') {
@@ -162,11 +169,11 @@ export const computeRevenueForecast = (
     }
     const amount = BigInt(amountMicros);
     const bucket = buckets.get(currencyCode) ?? {
-      pipeline: 0n,
-      bestCase: 0n,
-      commit: 0n,
-      won: 0n,
-      weightedNumerator: 0n,
+      pipeline: ZERO,
+      bestCase: ZERO,
+      commit: ZERO,
+      won: ZERO,
+      weightedNumerator: ZERO,
       ids: [],
     };
     bucket[mapping.category] += amount;
@@ -191,8 +198,8 @@ export const computeRevenueForecast = (
         wonOpportunityMicros: bucket.won.toString(),
         // Sum exact numerators before rounding half up once per currency.
         weightedOpenMicros: (
-          (bucket.weightedNumerator + 5000n) /
-          10000n
+          (bucket.weightedNumerator + HALF_BASIS_POINT_SCALE) /
+          BASIS_POINT_SCALE
         ).toString(),
         opportunityIds: bucket.ids.sort(),
       })),
@@ -238,8 +245,10 @@ export const computeQuotaAttainment = (
   const quota = BigInt(target.targetMicros);
   return {
     wonOpportunityMicros: won.toString(),
-    remainingMicros: (won >= quota ? 0n : quota - won).toString(),
+    remainingMicros: (won >= quota ? ZERO : quota - won).toString(),
     attainmentBasisPoints:
-      quota === 0n ? null : ((won * 10000n + quota / 2n) / quota).toString(),
+      quota === ZERO
+        ? null
+        : ((won * BASIS_POINT_SCALE + quota / TWO) / quota).toString(),
   };
 };
