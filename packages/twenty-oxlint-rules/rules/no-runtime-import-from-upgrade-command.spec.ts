@@ -11,6 +11,16 @@ const COMMAND_IMPORT =
 ruleTester.run(RULE_NAME, rule, {
   valid: [
     {
+      code: COMMAND_IMPORT,
+      filename:
+        'D:\\project\\packages\\twenty-server\\src\\database\\commands\\upgrade-version-command\\instance-commands.constant.ts',
+    },
+    {
+      code: COMMAND_IMPORT,
+      filename:
+        'D:\\project\\packages\\twenty-server\\src\\engine\\core-modules\\upgrade\\services\\upgrade-sequence-runner.service.ts',
+    },
+    {
       code: "import { NAME } from 'src/database/commands/upgrade-version-command/2-42/2-42-upgrade-command-name.constant';",
       filename: `${SERVER}/src/engine/core-modules/foo/foo.service.ts`,
     },
@@ -44,6 +54,12 @@ ruleTester.run(RULE_NAME, rule, {
     },
   ],
   invalid: [
+    {
+      code: COMMAND_IMPORT,
+      filename:
+        'D:\\project\\packages\\twenty-server\\src\\engine\\core-modules\\foo\\foo.service.ts',
+      errors: [{ messageId: 'noRuntimeImportFromUpgradeCommand' }],
+    },
     {
       code: COMMAND_IMPORT,
       filename: `${SERVER}/src/engine/core-modules/foo/foo.service.ts`,

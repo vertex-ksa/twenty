@@ -2392,6 +2392,11 @@ msgstr "All reasons"
 msgid "All roles"
 msgstr "All roles"
 
+#. js-lingui-id: gPyXYm
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "All stages start excluded. Choose a category and an open-stage probability to test assumptions. 10000 basis points means 100%."
+msgstr "All stages start excluded. Choose a category and an open-stage probability to test assumptions. 10000 basis points means 100%."
+
 #. js-lingui-id: p+lpde
 #: src/modules/activities/tasks/components/TaskGroupsContent.tsx
 msgid "All tasks addressed. Maintain the momentum."
@@ -2586,6 +2591,11 @@ msgstr "Amount"
 #: src/modules/object-record/record-field/ui/form-types/components/FormCurrencyFieldInput.tsx
 msgid "Amount Micros"
 msgstr "Amount Micros"
+
+#. js-lingui-id: h+e60R
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Amount required"
+msgstr "Amount required"
 
 #. js-lingui-id: Vw8l6h
 #: src/modules/workflow/workflow-steps/workflow-actions/http-request-action/components/HttpRequestExecutionResult.tsx
@@ -3388,6 +3398,11 @@ msgstr "Authorization failed. Please try again."
 msgid "Authorize"
 msgstr "Authorize"
 
+#. js-lingui-id: 5RFsy3
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Authorized opportunities"
+msgstr "Authorized opportunities"
+
 #. js-lingui-id: 3yzHpm
 #: src/pages/settings/legal/SettingsLegalDpaNew.tsx
 msgid "Authorized signatory name"
@@ -3591,6 +3606,11 @@ msgstr "Because this workflow is not using a manual trigger, the form will not o
 #: src/modules/settings/admin-panel/utils/getUpgradeHealthStatusBadge.ts
 msgid "Behind"
 msgstr "Behind"
+
+#. js-lingui-id: qfh5SS
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Best case"
+msgstr "Best case"
 
 #. js-lingui-id: YBt9YP
 #: src/pages/onboarding/InstallAppsContent.tsx
@@ -4283,6 +4303,16 @@ msgstr "Catalan"
 msgid "Catalog sync started. Try your lookup again in a moment."
 msgstr "Catalog sync started. Try your lookup again in a moment."
 
+#. js-lingui-id: qSi9CG
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Categories are separate. Weighted open value overlaps open categories; do not add it to those totals. Values retain six decimal places from native micros."
+msgstr "Categories are separate. Weighted open value overlaps open categories; do not add it to those totals. Values retain six decimal places from native micros."
+
+#. js-lingui-id: K7tIrx
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Category"
+msgstr "Category"
+
 #. js-lingui-id: RpYfjZ
 #: src/modules/activities/emails/components/EmailComposerFields.tsx
 #: src/modules/activities/emails/components/EmailComposerFields.tsx
@@ -4431,6 +4461,11 @@ msgstr "Check recent runs"
 msgid "Check the event dates"
 msgstr "Check the event dates"
 
+#. js-lingui-id: lOEA55
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Check the UTC period, owner selection and probabilities. Your entries are retained."
+msgstr "Check the UTC period, owner selection and probabilities. Your entries are retained."
+
 #. js-lingui-id: PaKTa7
 #: src/modules/ai/components/suggested-prompts/contextual-suggested-prompts.ts
 msgid "Check this workflow's recent runs and tell me whether any failed and why."
@@ -4528,6 +4563,11 @@ msgstr "Choose icon and color"
 msgid "Choose icon color"
 msgstr "Choose icon color"
 
+#. js-lingui-id: icRNdy
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Choose owners available in your workspace. Current opportunity ownership determines inclusion. Your existing record permissions still apply."
+msgstr "Choose owners available in your workspace. Current opportunity ownership determines inclusion. Your existing record permissions still apply."
+
 #. js-lingui-id: 5EMoSo
 #: src/modules/settings/billing/components/internal/SettingsBillingPlansWithoutSubscription.tsx
 msgid "Choose plan"
@@ -4552,6 +4592,11 @@ msgstr "Choose the fields that will identify your records"
 #: src/modules/settings/data-model/fields/forms/date/components/SettingsDataModelFieldDateForm.tsx
 msgid "Choose the format used to display date value"
 msgstr "Choose the format used to display date value"
+
+#. js-lingui-id: h6klwg
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Choose the period, owners and stage assumptions, then refresh the preview."
+msgstr "Choose the period, owners and stage assumptions, then refresh the preview."
 
 #. js-lingui-id: CiPJbh
 #: src/modules/settings/data-model/fields/forms/utils/getSettingsDataModelFieldOnClickActionDescription.ts
@@ -4779,6 +4824,11 @@ msgstr "Close"
 #: src/modules/information-banner/components/InformationBanner.tsx
 msgid "Close banner"
 msgstr "Close banner"
+
+#. js-lingui-id: enM0VS
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Close date required"
+msgstr "Close date required"
 
 #. js-lingui-id: n5fb8M
 #: src/modules/log-console/components/LogConsoleDetailPanel.tsx
@@ -5014,6 +5064,11 @@ msgstr "Commas and dot"
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 msgid "Comment"
 msgstr "Comment"
+
+#. js-lingui-id: rl/8FN
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Commit"
+msgstr "Commit"
 
 #. js-lingui-id: hZotg6
 #: src/modules/settings/accounts/components/SettingsAccountsNewEmailGroupChannel.tsx
@@ -6405,6 +6460,7 @@ msgid "currencies"
 msgstr "currencies"
 
 #. js-lingui-id: Q2lUR2
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
 #: src/modules/object-record/record-field/ui/meta-types/input/components/CurrencyFieldInput.tsx
 msgid "Currency"
 msgstr "Currency"
@@ -6421,6 +6477,11 @@ msgstr "Currency Code"
 #: src/modules/settings/billing/hooks/useBillingPlanActions.ts
 msgid "Current"
 msgstr "Current"
+
+#. js-lingui-id: je6ut9
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Current close date"
+msgstr "Current close date"
 
 #. js-lingui-id: VT4irJ
 #: src/pages/settings/ai/SettingsAiPrompts.tsx
@@ -8577,6 +8638,11 @@ msgstr "Encryption key rotation"
 msgid "End date"
 msgstr "End date"
 
+#. js-lingui-id: SeKRA4
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "End date (excluded)"
+msgstr "End date (excluded)"
+
 #. js-lingui-id: Fqu/aC
 #: src/modules/settings/admin-panel/health-status/maintenance-mode/components/SettingsAdminMaintenanceMode.tsx
 msgid "End date must be after start date."
@@ -9259,6 +9325,16 @@ msgstr "Exclude the following people and domains from my email sync. Internal co
 #: src/modules/settings/workspace/components/SettingsWorkspaceBlocklistSection.tsx
 msgid "Exclude the following people and domains from the email and calendar sync of every workspace member"
 msgstr "Exclude the following people and domains from the email and calendar sync of every workspace member"
+
+#. js-lingui-id: KJ/eAL
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Excluded"
+msgstr "Excluded"
+
+#. js-lingui-id: DzfM3D
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Excluded by trial mapping"
+msgstr "Excluded by trial mapping"
 
 #. js-lingui-id: g3jaWB
 #: src/pages/settings/legal/SettingsLegalDpa.tsx
@@ -10450,6 +10526,21 @@ msgstr "For example: What is this person's current profession?"
 msgid "For example: Would this customer recommend the service based on their feedback?"
 msgstr "For example: Would this customer recommend the service based on their feedback?"
 
+#. js-lingui-id: 5w7mgi
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Forecast period (UTC)"
+msgstr "Forecast period (UTC)"
+
+#. js-lingui-id: s5GvlW
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Forecast preview"
+msgstr "Forecast preview"
+
+#. js-lingui-id: m6CqZZ
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Forecast preview is unavailable for your current access or workspace."
+msgstr "Forecast preview is unavailable for your current access or workspace."
+
 #. js-lingui-id: glx6on
 #: src/modules/auth/sign-in-up/components/SignInUpGlobalScopeForm.tsx
 #: src/modules/auth/sign-in-up/components/SignInUpWorkspaceScopeForm.tsx
@@ -11217,6 +11308,10 @@ msgstr "Hide hidden groups"
 msgid "Hide label"
 msgstr "Hide label"
 
+#. js-lingui-id: by71A7
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Hide saved history"
+msgstr "Hide saved history"
 #. js-lingui-id: y9sG4l
 #: src/modules/settings/data-model/object-details/components/tabs/SettingsObjectIndexesSection.tsx
 msgid "Hide system indexes"
@@ -11731,6 +11826,11 @@ msgstr "Include emails where all participants share the same domain."
 #: src/modules/settings/billing/components/internal/SettingsBillingPlanComparisonTableRow.tsx
 msgid "Included"
 msgstr "Included"
+
+#. js-lingui-id: F80mhj
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Inclusion or exclusion"
+msgstr "Inclusion or exclusion"
 
 #. js-lingui-id: mtGDyy
 #: src/modules/settings/billing/components/SettingsBillingSubscriptionInfo.tsx
@@ -13165,6 +13265,10 @@ msgstr "Load limit"
 msgid "Load more"
 msgstr "Load more"
 
+#. js-lingui-id: +7YDJ/
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Load my snapshots"
+msgstr "Load my snapshots"
 #. js-lingui-id: CZGQgK
 #: src/modules/ai/utils/tool-display/get-tool-display-message.ts
 msgid "Loaded {formattedNames}"
@@ -13429,6 +13533,11 @@ msgstr "Look up"
 #: src/modules/workflow/workflow-diagram/utils/generateNodesAndEdgesForIteratorNode.ts
 msgid "loop"
 msgstr "loop"
+
+#. js-lingui-id: XbuiBx
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Lost"
+msgstr "Lost"
 
 #. js-lingui-id: nTWWCZ
 #: src/modules/ai/utils/getAiModelEffortLabel.ts
@@ -14245,6 +14354,10 @@ msgstr "must be an array of valid emails"
 msgid "My apps"
 msgstr "My apps"
 
+#. js-lingui-id: aPxLaV
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "My private snapshots"
+msgstr "My private snapshots"
 #. js-lingui-id: XTGSZU
 #: src/modules/views/view-picker/components/ViewPickerListContent.tsx
 msgid "My unlisted views"
@@ -14661,6 +14774,11 @@ msgstr "Next charge {totalRenewDate}. Invoice amount may vary if you add members
 #: src/modules/workflow/workflow-steps/workflow-actions/iterator-action/components/WorkflowIteratorSubStepSwitcher.tsx
 msgid "Next iteration"
 msgstr "Next iteration"
+
+#. js-lingui-id: /dqduX
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Next page"
+msgstr "Next page"
 
 #. js-lingui-id: 8+lM81
 #: src/modules/object-record/record-calendar/components/RecordCalendarTopBar.tsx
@@ -15190,6 +15308,16 @@ msgstr "No model is available for this mode."
 #: src/modules/activities/notes/components/NotesCardContent.tsx
 msgid "No notes"
 msgstr "No notes"
+
+#. js-lingui-id: M1R+Ov
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "No opportunities are visible in this authorized dataset."
+msgstr "No opportunities are visible in this authorized dataset."
+
+#. js-lingui-id: RYon0n
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "No opportunities match these trial assumptions. Review the excluded opportunities below."
+msgstr "No opportunities match these trial assumptions. Review the excluded opportunities below."
 
 #. js-lingui-id: daCzI1
 #: src/modules/ui/field/input/components/MultiSelectInput.tsx
@@ -15909,6 +16037,11 @@ msgstr "Objects"
 msgid "Objects and fields permissions settings"
 msgstr "Objects and fields permissions settings"
 
+#. js-lingui-id: 4ZXo4T
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Observed at"
+msgstr "Observed at"
+
 #. js-lingui-id: BwJKBw
 #: src/modules/settings/admin-panel/health-status/components/SettingsAdminQueueJobsTable.tsx
 msgid "of"
@@ -16120,6 +16253,10 @@ msgstr "Only you"
 msgid "Only you will be able to see your emails and events"
 msgstr "Only you will be able to see your emails and events"
 
+#. js-lingui-id: 70FxNy
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Only your snapshots are listed. Opening one checks your current record permissions again."
+msgstr "Only your snapshots are listed. Opening one checks your current record permissions again."
 #. js-lingui-id: 1TNIig
 #: src/modules/log-console/components/LogConsole.tsx
 #: src/modules/settings/data-model/objects/forms/components/SettingsDataModelObjectAboutForm.tsx
@@ -16239,6 +16376,10 @@ msgstr "Open settings"
 msgid "Open side panel"
 msgstr "Open side panel"
 
+#. js-lingui-id: p3jOg3
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Open snapshot"
+msgstr "Open snapshot"
 #. js-lingui-id: sBd/cl
 #: src/modules/settings/mcp-and-apis/utils/buildMcpSetupCategories.tsx
 msgid "Open Twenty's official ChatGPT integration for your workspace."
@@ -16278,6 +16419,26 @@ msgstr "operations"
 #: src/modules/settings/billing/constants/UsageLimitMeterLabels.ts
 msgid "Operations"
 msgstr "Operations"
+
+#. js-lingui-id: 3arXUc
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Opportunity owners"
+msgstr "Opportunity owners"
+
+#. js-lingui-id: yt2gsa
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Opportunity reference"
+msgstr "Opportunity reference"
+
+#. js-lingui-id: 5ugYS3
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Opportunity stage"
+msgstr "Opportunity stage"
+
+#. js-lingui-id: ecEGlW
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Opportunity value"
+msgstr "Opportunity value"
 
 #. js-lingui-id: fgY76O
 #. placeholder {0}: index + 1
@@ -16485,6 +16646,16 @@ msgstr "Output cost"
 msgid "Output tokens"
 msgstr "Output tokens"
 
+#. js-lingui-id: 4Ls1Ua
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Outside period"
+msgstr "Outside period"
+
+#. js-lingui-id: eyCfe0
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Outside selected owners"
+msgstr "Outside selected owners"
+
 #. js-lingui-id: iCOVQO
 #: src/modules/settings/admin-panel/components/SettingsAdminWorkspaceUsageLimitsSection.tsx
 msgid "Override"
@@ -16509,12 +16680,18 @@ msgid "Overview"
 msgstr "Overview"
 
 #. js-lingui-id: LtI9AS
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
 #: src/modules/object-record/record-sharing/components/RecordSharingDropdownContent.tsx
 #: src/pages/settings/admin-panel/SettingsAdminApplicationRegistrationClaims.tsx
 #: src/pages/settings/applications/components/SettingsApplicationRegistrationGeneralInfo.tsx
 #: src/pages/settings/applications/SettingsApplicationRegistrationDetails.tsx
 msgid "Owner"
 msgstr "Owner"
+
+#. js-lingui-id: /WUrvR
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Owner reference"
+msgstr "Owner reference"
 
 #. js-lingui-id: oDAEQq
 #: src/pages/settings/admin-panel/SettingsAdminApplicationRegistrationClaims.tsx
@@ -16980,6 +17157,11 @@ msgstr "Pinned tab, always shown on the left"
 msgid "Pinned to a specific model"
 msgstr "Pinned to a specific model"
 
+#. js-lingui-id: 67RoFa
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Pipeline"
+msgstr "Pipeline"
+
 #. js-lingui-id: hx1ePY
 #: src/modules/workflow/workflow-steps/workflow-actions/form-action/components/WorkflowFormFieldSettingsNumber.tsx
 #: src/modules/workflow/workflow-steps/workflow-actions/form-action/components/WorkflowFormFieldSettingsText.tsx
@@ -17233,6 +17415,11 @@ msgstr "Previous 7 days"
 msgid "Previous iteration"
 msgstr "Previous iteration"
 
+#. js-lingui-id: aHKcKc
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Previous page"
+msgstr "Previous page"
+
 #. js-lingui-id: KaMwgJ
 #: src/modules/object-record/record-calendar/components/RecordCalendarTopBar.tsx
 msgid "Previous period"
@@ -17311,6 +17498,11 @@ msgstr "pro plan"
 #: src/modules/settings/billing/components/SettingsBillingSubscriptionInfo.tsx
 msgid "Pro plan"
 msgstr "Pro plan"
+
+#. js-lingui-id: 3Qxg/4
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Probability (basis points)"
+msgstr "Probability (basis points)"
 
 #. js-lingui-id: vrnnn9
 #: src/modules/activities/calendar/components/CalendarEventCallRecorderAvatar.tsx
@@ -17597,6 +17789,15 @@ msgstr "Read-only {entityTypeLabel} definition shipped by this app"
 msgid "Read/Edit/Delete permissions"
 msgstr "Read/Edit/Delete permissions"
 
+#. js-lingui-id: BMBR8P
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Reading current authorized opportunities…"
+msgstr "Reading current authorized opportunities…"
+
+#. js-lingui-id: qJy2qx
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Reading or saving your private snapshot…"
+msgstr "Reading or saving your private snapshot…"
 #. js-lingui-id: VJScHU
 #: src/modules/settings/admin-panel/components/SettingsAdminWorkspaceCreditGrantModal.tsx
 #: src/modules/settings/admin-panel/components/SettingsAdminWorkspaceCreditGrantsTable.tsx
@@ -17883,6 +18084,11 @@ msgstr "Redirection URI"
 #: src/modules/log-console/components/LogConsoleResults.tsx
 msgid "Refresh"
 msgstr "Refresh"
+
+#. js-lingui-id: o4y+Wp
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Refresh forecast preview"
+msgstr "Refresh forecast preview"
 
 #. js-lingui-id: pTGa/J
 #: src/pages/settings/admin-panel/SettingsAdminInferredVersion.tsx
@@ -18549,6 +18755,10 @@ msgstr "Retry All Failed"
 msgid "Retry on failure"
 msgstr "Retry on failure"
 
+#. js-lingui-id: VwXehb
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Retry the same snapshot save"
+msgstr "Retry the same snapshot save"
 #. js-lingui-id: AF7Zfa
 #: src/modules/settings/admin-panel/constants/SettingsAdminFeatureFlagMetadata.ts
 msgid "Return metadata directly instead of wrapping it in the legacy response envelope."
@@ -18564,6 +18774,11 @@ msgstr "Return Value"
 #: src/modules/side-panel/pages/page-layout/utils/getSortLabelSuffixForFieldType.ts
 msgid "reverse alphabetical"
 msgstr "reverse alphabetical"
+
+#. js-lingui-id: xjIdi9
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Review current opportunities you can access. These totals are a visible subset, not a certified team forecast."
+msgstr "Review current opportunities you can access. These totals are a visible subset, not a certified team forecast."
 
 #. js-lingui-id: GXsAby
 #: src/modules/settings/admin-panel/components/SettingsAdminWorkspaceCreditGrantRowDropdownMenu.tsx
@@ -18865,6 +19080,10 @@ msgstr "Save"
 msgid "Save 25% when billed annually"
 msgstr "Save 25% when billed annually"
 
+#. js-lingui-id: pOT8bT
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Save a private snapshot"
+msgstr "Save a private snapshot"
 #. js-lingui-id: apLRCm
 #: src/modules/views/components/UpdateViewButtonGroup.tsx
 msgid "Save as new view"
@@ -18895,6 +19114,18 @@ msgstr "Save the record before attaching a file"
 msgid "Save your changes first"
 msgstr "Save your changes first"
 
+#. js-lingui-id: xXHjyb
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Saved at"
+msgstr "Saved at"
+#. js-lingui-id: oVNvGj
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Saved historical facts"
+msgstr "Saved historical facts"
+#. js-lingui-id: qY5CMT
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Saving reads current data again under these assumptions. The private snapshot is not submitted for approval and does not establish a target."
+msgstr "Saving reads current data again under these assumptions. The private snapshot is not submitted for approval and does not establish a target."
 #. js-lingui-id: bifv6N
 #: src/modules/settings/experience/components/UiScalePicker.tsx
 msgid "Scale"
@@ -19864,6 +20095,11 @@ msgstr "Sent and Received"
 msgid "Sent email"
 msgstr "Sent email"
 
+#. js-lingui-id: mFMROO
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Separate currency totals"
+msgstr "Separate currency totals"
+
 #. js-lingui-id: b/sg59
 #: src/modules/advanced-text-editor/constants/AdvancedTextEditorBlockCatalog.ts
 msgid "separator"
@@ -20451,6 +20687,10 @@ msgstr "SMTP Username"
 msgid "smtp.example.com"
 msgstr "smtp.example.com"
 
+#. js-lingui-id: uWcBjD
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Snapshot reference"
+msgstr "Snapshot reference"
 #. js-lingui-id: zfjcH5
 #: src/modules/settings/roles/role-permissions/object-level-permissions/components/SettingsRolePermissionsObjectLevelSeeFieldsValueForObject.tsx
 #: src/modules/settings/roles/role-permissions/object-level-permissions/components/SettingsRolePermissionsObjectLevelUpdateFieldsValueForObject.tsx
@@ -20695,6 +20935,11 @@ msgstr "Start a new Organization subscription."
 msgid "Start date"
 msgstr "Start date"
 
+#. js-lingui-id: BwHZkf
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Start date (included)"
+msgstr "Start date (included)"
+
 #. js-lingui-id: HUKGLi
 #: src/modules/ai/dictation/components/AiChatDictationButton.tsx
 msgid "Start dictation"
@@ -20825,6 +21070,18 @@ msgstr "Storage"
 msgid "Store the full URL or just the domain"
 msgstr "Store the full URL or just the domain"
 
+#. js-lingui-id: EnS/BS
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Stored owner references"
+msgstr "Stored owner references"
+#. js-lingui-id: 1ZBI0w
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Stored stage assumptions"
+msgstr "Stored stage assumptions"
+#. js-lingui-id: 1w/1zx
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Stored UTC period"
+msgstr "Stored UTC period"
 #. js-lingui-id: GGiaAW
 #: src/modules/workflow/workflow-steps/workflow-actions/pick-record-action/components/WorkflowEditActionPickRecord.tsx
 msgid "Strategy"
@@ -21585,6 +21842,11 @@ msgstr "The export connection was lost. Please try again."
 msgid "The export was interrupted. Please try again."
 msgstr "The export was interrupted. Please try again."
 
+#. js-lingui-id: gOIIxy
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "The forecast could not be verified. Check your connection and refresh to retry."
+msgstr "The forecast could not be verified. Check your connection and refresh to retry."
+
 #. js-lingui-id: 21Xjwu
 #: src/pages/settings/legal/SettingsLegalDpaNew.tsx
 msgid "The full agreement with fields resolved for your deployment."
@@ -21692,6 +21954,10 @@ msgstr "The selected records (up to {maxRecordsFormatted}) will be passed to you
 msgid "The shared email you want to use."
 msgstr "The shared email you want to use."
 
+#. js-lingui-id: 3PTJwh
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "The snapshot could not be verified. Your current preview is separate. Retry the same save if the connection failed after submission."
+msgstr "The snapshot could not be verified. Your current preview is separate. Retry the same save if the connection failed after submission."
 #. js-lingui-id: 9q0gnf
 #: src/modules/page-layout/widgets/call-recording/utils/getCallRecordingStatusDisplayConfiguration.ts
 msgid "The transcript could not be generated."
@@ -21788,6 +22054,10 @@ msgstr "There is no activity associated with this record."
 msgid "There was an error while updating password."
 msgstr "There was an error while updating password."
 
+#. js-lingui-id: 295Rgj
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "These immutable values were captured earlier. They do not replace current data, establish an approved forecast or recognize revenue."
+msgstr "These immutable values were captured earlier. They do not replace current data, establish an approved forecast or recognize revenue."
 #. js-lingui-id: 5Ml5Nr
 #: src/modules/advanced-text-editor/constants/AdvancedTextEditorBlockCatalog.ts
 msgid "Thickness"
@@ -22402,6 +22672,11 @@ msgstr "Tomato"
 msgid "Tomorrow"
 msgstr "Tomorrow"
 
+#. js-lingui-id: nhsa5h
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Too many accessible opportunities for this preview. No partial totals are shown."
+msgstr "Too many accessible opportunities for this preview. No partial totals are shown."
+
 #. js-lingui-id: 1NhzqT
 #: src/modules/activities/calendar/components/CalendarEventComposerFields.tsx
 msgid "Too many guests"
@@ -22581,6 +22856,15 @@ msgstr "Translations"
 msgid "Trial"
 msgstr "Trial"
 
+#. js-lingui-id: j8LXan
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+#~ msgid "Trial assumptions only. Nothing is saved or submitted. Won opportunity value is not recognized revenue. Currencies are separate; no exchange rates are applied."
+#~ msgstr "Trial assumptions only. Nothing is saved or submitted. Won opportunity value is not recognized revenue. Currencies are separate; no exchange rates are applied."
+
+#. js-lingui-id: lfHF9B
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Trial assumptions only. Refreshing does not save or submit anything. Private snapshots are saved only with the separate action below. Won opportunity value is not recognized revenue. Currencies are separate; no exchange rates are applied."
+msgstr "Trial assumptions only. Refreshing does not save or submit anything. Private snapshots are saved only with the separate action below. Won opportunity value is not recognized revenue. Currencies are separate; no exchange rates are applied."
 #. js-lingui-id: KMw9zY
 #: src/modules/settings/billing/components/SettingsBillingTrialNoPaymentMethodBanner.tsx
 msgid "Trial ends {trialEndDate}, please add card details to keep the {planName}"
@@ -22620,6 +22904,11 @@ msgstr "Trial period"
 #: src/pages/onboarding/UpgradeFreeTrial.tsx
 msgid "Trial plan"
 msgstr "Trial plan"
+
+#. js-lingui-id: eyY0VE
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Trial stage mapping"
+msgstr "Trial stage mapping"
 
 #. js-lingui-id: H2Sfhg
 #: src/modules/side-panel/components/SidePanelWorkflowStepInfo.tsx
@@ -22911,6 +23200,11 @@ msgstr "Unanswered"
 #: src/modules/ai/components/AiChatThreadItemMenu.tsx
 msgid "Unarchive"
 msgstr "Unarchive"
+
+#. js-lingui-id: oxAQte
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Unassigned owner"
+msgstr "Unassigned owner"
 
 #. js-lingui-id: jqzUyM
 #: src/modules/activities/emails/components/CampaignSentEnvelope.tsx
@@ -24588,6 +24882,11 @@ msgstr "Weekly"
 msgid "weeks"
 msgstr "weeks"
 
+#. js-lingui-id: wb65Yb
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Weighted open value"
+msgstr "Weighted open value"
+
 #. js-lingui-id: nTuObL
 #: src/pages/auth/SignInUp.tsx
 msgid "Welcome to Twenty"
@@ -24765,6 +25064,11 @@ msgstr "Without calling code"
 #: src/pages/onboarding/UpgradeFreeTrial.tsx
 msgid "without credit card"
 msgstr "without credit card"
+
+#. js-lingui-id: EZ08Yr
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "Won opportunity value"
+msgstr "Won opportunity value"
 
 #. js-lingui-id: 3J7l5w
 #: src/pages/settings/admin-panel/SettingsAdminQueueDetail.tsx
@@ -25237,6 +25541,10 @@ msgstr "You don't have access to this object."
 msgid "You don't have access to this settings page."
 msgstr "You don't have access to this settings page."
 
+#. js-lingui-id: bY9Mmn
+#: src/modules/forecast-preview/forecastPreviewMessages.ts
+msgid "You have no saved snapshots in this workspace."
+msgstr "You have no saved snapshots in this workspace."
 #. js-lingui-id: tzk0bz
 #: src/pages/settings/enterprise/SettingsEnterprise.tsx
 msgid "You have reached the maximum number of server transfers allowed in the last 30 days for this Organization key. Please try again later or contact support."

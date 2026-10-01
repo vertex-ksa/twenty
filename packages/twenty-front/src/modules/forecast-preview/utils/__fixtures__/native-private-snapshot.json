@@ -1,0 +1,72 @@
+{
+  "id": "64ddb0c4-401e-4843-b1bd-dbe56f6f0588",
+  "createdAt": "2026-10-01T04:17:36.258Z",
+  "contentHash": "63be92dba7b09af5a407bcbac177efd867ca884850a7a1ffce1bb677cf6697d5",
+  "scope": "private_native_user",
+  "immutable": true,
+  "persistedSnapshot": true,
+  "policyAuthority": "caller_supplied_private_snapshot",
+  "content": {
+    "actor": {
+      "userId": "20202020-3957-4908-9c36-2929a23f8357",
+      "workspaceId": "20202020-1c25-4d02-bf25-6aeccf7ea419",
+      "userWorkspaceId": "20202020-3957-4908-9c36-2929a23f8353"
+    },
+    "policy": {
+      "endAt": "2027-01-01T00:00:00.000Z",
+      "stages": [
+        {
+          "stage": "NEW",
+          "category": "pipeline",
+          "probabilityBasisPoints": 1000
+        }
+      ],
+      "startAt": "2026-01-01T00:00:00.000Z",
+      "ownerIds": ["20202020-0687-4c41-b707-ed1bfca972a7"],
+      "policyVersion": "synthetic-snapshot/1"
+    },
+    "preview": {
+      "source": "current_native_actor_visible_opportunities",
+      "forecast": {
+        "endAt": "2027-01-01T00:00:00.000Z",
+        "startAt": "2026-01-01T00:00:00.000Z",
+        "excluded": [],
+        "ownerIds": ["20202020-0687-4c41-b707-ed1bfca972a7"],
+        "currencies": [
+          {
+            "commitMicros": "0",
+            "currencyCode": "SAR",
+            "bestCaseMicros": "0",
+            "opportunityIds": ["50505050-0001-4e7c-8001-123456789abc"],
+            "pipelineMicros": "10000001",
+            "weightedOpenMicros": "1000000",
+            "wonOpportunityMicros": "0"
+          }
+        ],
+        "policyVersion": "synthetic-snapshot/1"
+      },
+      "generatedAt": "2026-10-01T04:17:36.251Z",
+      "opportunities": [
+        {
+          "id": "50505050-0001-4e7c-8001-123456789abc",
+          "stage": "NEW",
+          "amount": {
+            "amountMicros": "10000001",
+            "currencyCode": "SAR"
+          },
+          "ownerId": "20202020-0687-4c41-b707-ed1bfca972a7",
+          "closeDate": "2026-10-15T00:00:00.000Z"
+        }
+      ],
+      "policyAuthority": "caller_supplied_preview_only",
+      "persistedSnapshot": false,
+      "completeWithinAuthorizedDataset": true
+    },
+    "captureKind": "immutable_copy_of_read_only_preview",
+    "environment": "test:http://127.0.0.1:19160",
+    "creditPolicy": "current-owner-close-date-won-opportunity",
+    "schemaVersion": "native-private-forecast/1",
+    "calculationVersion": "exact-micros-category/1",
+    "canonicalizationVersion": "sorted-json-keys/1"
+  }
+}

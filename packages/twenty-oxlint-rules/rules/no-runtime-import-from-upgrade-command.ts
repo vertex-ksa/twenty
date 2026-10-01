@@ -17,7 +17,9 @@ const EXEMPT_FILE_REGEXES = [
 ];
 
 const isExemptFile = (filename: string): boolean =>
-  EXEMPT_FILE_REGEXES.some((regex) => regex.test(filename));
+  EXEMPT_FILE_REGEXES.some((regex) =>
+    regex.test(filename.replaceAll('\\', '/')),
+  );
 
 const isForbiddenImportSource = (source: string): boolean =>
   source.startsWith(UPGRADE_COMMAND_IMPORT_PREFIX) &&

@@ -272,4 +272,121 @@ describe('useCachedMetadata', () => {
     expect(cacheGetter).not.toHaveBeenCalled();
     expect(dependencyHashGetter).not.toHaveBeenCalled();
   });
+
+  it('preserves ordinary metadata cache hits when the forecast name is only an alias or comment', async () => {
+    const cachedMetadata = {
+      data: { revenueForecastPreview: [{ id: 'object-id' }] },
+    };
+    const cacheGetter = jest.fn().mockResolvedValue(cachedMetadata);
+    const cacheSetter = jest.fn();
+    const plugin = useCachedMetadata({
+      cacheGetter,
+      cacheSetter,
+      dependencyHashGetter: jest.fn().mockResolvedValue('dependency-hash'),
+      operationsToCache: {
+        ObjectMetadataItems: { scope: 'workspace', dependencies: [] },
+      },
+    });
+    const serverContext = {
+      req: createRequest({
+        body: {
+          operationName: 'ObjectMetadataItems',
+          query:
+            'query ObjectMetadataItems { revenueForecastPreview: objects { id } } # revenueForecastPreview',
+        },
+      }),
+    };
+    const endResponse = jest.fn();
+
+    await plugin.onRequest?.({ endResponse, serverContext } as never);
+    const response = endResponse.mock.calls[0][0] as Response;
+    await plugin.onResponse?.({ response, serverContext } as never);
+
+    expect(await response.json()).toEqual(cachedMetadata);
+    expect(cacheGetter).toHaveBeenCalledTimes(1);
+    expect(cacheSetter).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    'query ObjectMetadataItems { revenueForecastPreview(input: {}) }',
+    'query ObjectMetadataItems { safeName: revenueForecastPreview(input: {}) }',
+    'query ObjectMetadataItems { objects { id } revenueForecastPreview(input: {}) }',
+    'query ObjectMetadataItems { ... on Query { revenueForecastPreview(input: {}) } }',
+    'query ObjectMetadataItems { ...Forecast } fragment Forecast on Query { result: revenueForecastPreview(input: {}) }',
+    'query ObjectMetadataItems { ...Outer } fragment Outer on Query { ...Inner } fragment Inner on Query { revenueForecastPreview(input: {}) }',
+    'query ObjectMetadataItems { objects { id } } query Other { revenueForecastPreview(input: {}) }',
+    'query ObjectMetadataItems { objects { id } } fragment Unused on Query { revenueForecastPreview(input: {}) }',
+    'query ObjectMetadataItems { revenueForecastSnapshots }',
+    'query ObjectMetadataItems { privateHistory: revenueForecastSnapshot(id: "synthetic") }',
+    'mutation ObjectMetadataItems { saveRevenueForecastSnapshot(input: {}) }',
+    'query ObjectMetadataItems { ...History } fragment History on Query { revenueForecastSnapshot(id: "synthetic") }',
+  ])(
+    'never reads or writes an actor-specific forecast under an allowed operation name: %s',
+    async (query) => {
+      const cachedForecast = {
+        data: { revenueForecastPreview: { privateTotal: '100' } },
+      };
+      const cacheGetter = jest.fn().mockResolvedValue(cachedForecast);
+      const cacheSetter = jest.fn();
+      const dependencyHashGetter = jest.fn();
+      const plugin = useCachedMetadata({
+        cacheGetter,
+        cacheSetter,
+        dependencyHashGetter,
+        operationsToCache: {
+          ObjectMetadataItems: { scope: 'workspace', dependencies: [] },
+        },
+      });
+
+      for (const userWorkspaceId of ['actor-a', 'actor-b']) {
+        const request = createRequest({
+          userWorkspaceId,
+          body: { operationName: 'ObjectMetadataItems', query },
+        });
+        const serverContext = { req: request };
+        const endResponse = jest.fn();
+        const response = Response.json(cachedForecast);
+
+        await plugin.onRequest?.({ endResponse, serverContext } as never);
+        await plugin.onResponse?.({ response, serverContext } as never);
+
+        expect(endResponse).not.toHaveBeenCalled();
+        expect(response.bodyUsed).toBe(false);
+      }
+
+      expect(cacheGetter).not.toHaveBeenCalled();
+      expect(cacheSetter).not.toHaveBeenCalled();
+      expect(dependencyHashGetter).not.toHaveBeenCalled();
+    },
+  );
+
+  it.each([
+    { operationName: 'FindAllViews', query: 'query FindAllViews {' },
+    { operationName: 'FindAllViews' },
+    [
+      {
+        operationName: 'FindAllViews',
+        query: 'query FindAllViews { views { id } }',
+      },
+    ],
+  ])(
+    'leaves unsupported or malformed documents on the uncached native path',
+    async (body) => {
+      const cacheGetter = jest.fn();
+      const cacheSetter = jest.fn();
+      const plugin = createPlugin({ cacheGetter, cacheSetter });
+      const serverContext = { req: createRequest({ body }) };
+      const endResponse = jest.fn();
+
+      await plugin.onRequest?.({ endResponse, serverContext } as never);
+      await plugin.onResponse?.({
+        response: Response.json({ data: {} }),
+        serverContext,
+      } as never);
+
+      expect(endResponse).not.toHaveBeenCalled();
+      expect(cacheGetter).not.toHaveBeenCalled();
+      expect(cacheSetter).not.toHaveBeenCalled();
+    },
+  );
 });
