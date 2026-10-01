@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 import { useApolloClient } from '@apollo/client/react';
 import { styled } from '@linaria/react';
 import { useLingui } from '@lingui/react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'twenty-ui/primitives/input';
 import { themeCssVariables } from 'twenty-ui/theme';
@@ -53,6 +53,10 @@ const StyledHistory = styled.section`
   dd {
     margin-inline-start: 0;
     overflow-wrap: anywhere;
+  }
+  h3:focus-visible {
+    outline: 2px solid ${themeCssVariables.color.blue9};
+    outline-offset: 2px;
   }
 `;
 const StyledActions = styled.div`
@@ -114,6 +118,10 @@ export const ForecastHistoryPanel = ({
   const [state, setState] = useState<HistoryState>(EMPTY);
   const [saveCommand, setSaveCommand] = useState<string | null>(null);
   const [page, setPage] = useState(1);
+  const focusHistoricalFacts = useCallback(
+    (heading: HTMLHeadingElement | null) => heading?.focus(),
+    [],
+  );
 
   useEffect(() => {
     if (!request) return;
@@ -267,7 +275,9 @@ export const ForecastHistoryPanel = ({
         ))}
       {snapshot && (
         <>
-          <h3>{text('historicalSnapshot')}</h3>
+          <h3 ref={focusHistoricalFacts} tabIndex={-1}>
+            {text('historicalSnapshot')}
+          </h3>
           <p>{text('historicalBoundary')}</p>
           <dl>
             <dt>{text('snapshotReference')}</dt>

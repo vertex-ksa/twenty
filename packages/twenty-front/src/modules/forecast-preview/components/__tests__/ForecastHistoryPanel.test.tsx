@@ -1,4 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 
 import { ForecastHistoryPanel } from '@/forecast-preview/components/ForecastHistoryPanel';
@@ -23,6 +24,7 @@ jest.mock('@/forecast-preview/forecastPreviewMessages', () => ({
     saveSnapshotRetry: 'Retry save',
     loadHistory: 'Load',
     hideHistory: 'Hide',
+    openSnapshot: 'Open',
     historyLoading: 'Loading',
     snapshotFailure: 'Failed',
     emptyHistory: 'Empty',
@@ -73,6 +75,39 @@ beforeEach(() => {
 });
 
 describe('private snapshot request lifecycle', () => {
+  it('brings verified historical facts into keyboard focus after opening a snapshot', async () => {
+    const user = userEvent.setup();
+    mockClient.query.mockResolvedValueOnce({
+      data: {
+        revenueForecastSnapshots: [
+          { id: 'private-ref', createdAt: '2026-10-01T00:00:00Z' },
+        ],
+      },
+    });
+    render(panel('actor-a'));
+    await user.click(screen.getByRole('button', { name: 'Load' }));
+    const pending = deferred();
+    mockClient.query.mockReturnValueOnce(pending.promise);
+    mockReadSnapshot.mockResolvedValueOnce({
+      id: 'private-ref',
+      createdAt: '2026-10-01T00:00:00Z',
+      policy,
+      preview: {
+        generatedAt: '2026-10-01T00:00:00Z',
+        opportunities: [],
+        forecast: { currencies: [] },
+      },
+    });
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    expect(screen.queryByRole('heading', { name: 'Saved facts' })).toBeNull();
+    await act(async () =>
+      pending.resolve({ data: { revenueForecastSnapshot: {} } }),
+    );
+    expect(screen.getByRole('heading', { name: 'Saved facts' })).toHaveFocus();
+    await user.click(screen.getByRole('button', { name: 'Hide' }));
+    expect(screen.queryByRole('heading', { name: 'Saved facts' })).toBeNull();
+  });
+
   it('reuses the command after a lost acknowledgement even when current preview was invalidated', async () => {
     const first = deferred();
     const retry = deferred();
