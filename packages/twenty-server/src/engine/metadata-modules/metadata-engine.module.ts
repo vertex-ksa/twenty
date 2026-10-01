@@ -1,5 +1,7 @@
 import { RecordPermissionsModule } from 'src/engine/metadata-modules/record-permissions/record-permissions.module';
 import { Module } from '@nestjs/common';
+
+import { ForecastPreviewModule } from 'src/modules/opportunity/forecasting/forecast-preview.module';
 import { APP_FILTER } from '@nestjs/core';
 
 import { AiAgentMonitorModule } from 'src/engine/metadata-modules/ai/ai-agent-monitor/ai-agent-monitor.module';
@@ -40,6 +42,7 @@ import { WorkspaceMetadataVersionModule } from 'src/engine/metadata-modules/work
 
 @Module({
   imports: [
+    ForecastPreviewModule,
     RecordPermissionsModule,
     FieldMetadataModule,
     FrontComponentModule,

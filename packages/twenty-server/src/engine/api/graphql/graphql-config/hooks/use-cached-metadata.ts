@@ -2,6 +2,7 @@ import { createHash } from 'crypto';
 
 import * as Sentry from '@sentry/node';
 import { type Request } from 'express';
+import { parse, visit } from 'graphql';
 import { type Plugin } from 'graphql-yoga';
 import { isDefined } from 'twenty-shared/utils';
 
@@ -25,6 +26,32 @@ export type CacheMetadataPluginConfig = {
 };
 
 export function useCachedMetadata(config: CacheMetadataPluginConfig): Plugin {
+  // Operation names are caller-controlled. A workspace-scoped metadata cache
+  // must never cache the actor-specific forecast, even under an allowed name.
+  // Inspect the whole document conservatively, including fragment definitions
+  // and aliases; malformed/batched envelopes stay on the uncached native path.
+  const excludesActorSpecificForecast = (request: Request): boolean => {
+    if (typeof request.body?.query !== 'string') {
+      return true;
+    }
+
+    try {
+      let excluded = false;
+
+      visit(parse(request.body.query), {
+        Field(node) {
+          if (node.name.value === 'revenueForecastPreview') {
+            excluded = true;
+          }
+        },
+      });
+
+      return excluded;
+    } catch {
+      return true;
+    }
+  };
+
   const computeCacheKey = async ({
     operationName,
     operationConfig,
@@ -142,7 +169,10 @@ export function useCachedMetadata(config: CacheMetadataPluginConfig): Plugin {
       const operationName = getOperationName(serverContext);
       const operationConfig = getOperationCacheConfig(operationName);
 
-      if (!isDefined(operationConfig)) {
+      if (
+        !isDefined(operationConfig) ||
+        excludesActorSpecificForecast(request)
+      ) {
         return;
       }
 
@@ -183,7 +213,10 @@ export function useCachedMetadata(config: CacheMetadataPluginConfig): Plugin {
 
       const operationName = getOperationName(serverContext);
 
-      if (!isDefined(getOperationCacheConfig(operationName))) {
+      if (
+        !isDefined(getOperationCacheConfig(operationName)) ||
+        excludesActorSpecificForecast(request)
+      ) {
         return;
       }
 
